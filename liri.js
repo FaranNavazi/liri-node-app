@@ -31,9 +31,17 @@ switch (action) {
   case "spotify":
     spotifyThis();
     break;
+  
+  case "do-what-it-says":
+    doWhat();
+    break;
 
   default:
-    console.log("After 'liri.js' Please enter one of the following: ");
+    console.log("After 'node liri.js' Please enter one of the following:");
+    console.log("*movie");
+    console.log("*concert")
+    console.log("*spotify")
+    console.log("*do-what-it-says")
     break;
 }
 
