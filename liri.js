@@ -1,18 +1,20 @@
+// npm for dotenv
 require("dotenv").config();
-
+// npm for fs
 var fs = require("fs");
-
+// npm for spotify API and requesting for key from .env file
 var keys = require("./keys.js");
 var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
-
+// npm for moment.js
 var moment = require("moment");
-
+// npm for axios
 var axios = require("axios");
+// variables for input and looping through the multi input
 var action = process.argv[2];
 var nodeArgs = process.argv;
 var input = "";
-
+// loop for multi input
 for (var i = 3; i < nodeArgs.length; i++) {
   if (i > 3 && i < nodeArgs.length) {
     input = input + "+" + nodeArgs[i];
@@ -20,7 +22,7 @@ for (var i = 3; i < nodeArgs.length; i++) {
     input += nodeArgs[i];
   }
 }
-
+// action words for awaking requier function
 switch (action) {
   case "movie":
     movie();
@@ -47,8 +49,10 @@ switch (action) {
     break;
 }
 
-//function for OMDB movie finder
+//function for OMDB API
 function movie() {
+  if (input === "") input = "Mr.Nobody"
+
   var queryUrl =
     "http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy";
 
@@ -68,6 +72,7 @@ function movie() {
   });
 }
 
+// function for Bands in Town API
 function concert() {
   var queryUrl =
     "https://rest.bandsintown.com/artists/" +
@@ -87,6 +92,7 @@ function concert() {
   });
 }
 
+//functoin for Spotify API
 function spotifyThis() {
   if (input === "") input = "the sign ace of base"
 
@@ -113,6 +119,7 @@ function spotifyThis() {
     });
 }
 
+// function for Random pick action
 function doWhatItSays() {
   fs.readFile("random.txt", "utf8", function(err, data) {
     if (err) return console.log(err);
