@@ -55,14 +55,14 @@ function movie() {
   axios.get(queryUrl).then(function(response) {
     console.log("==============================================");
     console.log("");
-    console.log(response);
-    // console.log("Movie Title: " + response.data.Title);
-    // console.log("Release Year: " + response.data.Year);
-    // console.log("IMDB Rating: " + response.data.imdbRating);
-    // console.log("Country the movie is from: " + response.data.Country);
-    // console.log("Language of the movie is: " + response.data.Language);
-    // console.log("Plot: " + response.data.Plot);
-    // console.log("Actors: " + response.data.Actors);
+    console.log("Movie Title: " + response.data.Title);
+    console.log("Release Year: " + response.data.Year);
+    console.log("IMDB Rating: " + response.data.imdbRating);
+    console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
+    console.log("Country the movie is from: " + response.data.Country);
+    console.log("Language of the movie is: " + response.data.Language);
+    console.log("Plot: " + response.data.Plot);
+    console.log("Actors: " + response.data.Actors);
     console.log("");
     console.log("==============================================");
   });
