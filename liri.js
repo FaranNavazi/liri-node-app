@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+var fs = require("fs");
+
 var keys = require("./keys.js");
 var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
@@ -33,7 +35,7 @@ switch (action) {
     break;
   
   case "do-what-it-says":
-    doWhat();
+    doWhatItSays();
     break;
 
   default:
@@ -53,13 +55,14 @@ function movie() {
   axios.get(queryUrl).then(function(response) {
     console.log("==============================================");
     console.log("");
-    console.log("Movie Title: " + response.data.Title);
-    console.log("Release Year: " + response.data.Year);
-    console.log("IMDB Rating: " + response.data.imdbRating);
-    console.log("Country the movie is from: " + response.data.Country);
-    console.log("Language of the movie is: " + response.data.Language);
-    console.log("Plot: " + response.data.Plot);
-    console.log("Actors: " + response.data.Actors);
+    console.log(response);
+    // console.log("Movie Title: " + response.data.Title);
+    // console.log("Release Year: " + response.data.Year);
+    // console.log("IMDB Rating: " + response.data.imdbRating);
+    // console.log("Country the movie is from: " + response.data.Country);
+    // console.log("Language of the movie is: " + response.data.Language);
+    // console.log("Plot: " + response.data.Plot);
+    // console.log("Actors: " + response.data.Actors);
     console.log("");
     console.log("==============================================");
   });
@@ -85,6 +88,8 @@ function concert() {
 }
 
 function spotifyThis() {
+  if (input === "") input = "the sign ace of base"
+
   spotify
     .search({
       type: "track",
@@ -106,4 +111,13 @@ function spotifyThis() {
     .catch(function(err) {
       console.log(err);
     });
+}
+
+function doWhatItSays() {
+  fs.readFile("random.txt", "utf8", function(err, data) {
+    if (err) return console.log(err);
+    console.log(data);
+    input = data;
+    spotifyThis();
+  })
 }
