@@ -84,11 +84,14 @@ function concert() {
       console.log("==============================================");
       console.log("");
       console.log("Name Of The Venue: " + response.data[i].venue.name);
-      console.log("Release Year: " + response.data[i].venue.city + ", " + response.data[i].venue.region + ", " + response.data[i].venue.country);
+      console.log("Location Of The Venue: " + response.data[i].venue.city + ", " + response.data[i].venue.region + ", " + response.data[i].venue.country);
       console.log("Date Of The Event: " + moment(response.data[i].datetime).toDate());
       console.log("");
       console.log("==============================================");
     }
+  })
+  .catch(function(err) {
+    console.log(err);
   });
 }
 
