@@ -1,7 +1,10 @@
-# LIRI Application With Node.js
+# LIRI Application With Node.js v 1.0
 
 ## What is LIRI?
 LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
+
+## Why this project is useful?
+This project is one of the best practices on your node skills and playing around with npm and api. One of the important keys of this project is that you have to make sure you hide your api keys and secrets and never push them to GitHub or any online source.
 
 ## What can LIRI search and what will it show in result?
 1. Bands In Town API: 
@@ -45,7 +48,11 @@ LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and R
 
 ### * If there is no input after movie or spotify, there is a default set for these commands, that will show a set data.
 
-4. As you see, there is a 4th command in this app as well. This command will go to the random.txt file and grab an input from there and runs spotify API.
+![How-To-Part-6](./images/ht-6.png)
+
+![How-To-Part-7](./images/ht-7.png)
+
+4. As you see, there is a 4th command in this app as well. This command will go to the random.txt file and grab an input from there using fs npm and runs spotify API.
 
 ![How-To-Part-5](./images/ht-5.png)
 
